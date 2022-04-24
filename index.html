@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TwoOfUs</title>
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Indie+Flower|Merienda" rel="stylesheet">
+    <link rel="stylesheet" href="res/bootstrap/css/bootstrap.min.css">
+    <script src="res/jquery/jquery.min.js"></script>
+    <script src="res/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div class="container">
+    <div id="content">
+        <div id="leader">
+            <h2>We<small>'ve been together for</small> </h2>
+            <div id="time">
+                <em class="lead">
+                    <span id="day"></span>D
+                    <span id="hour"></span>H
+                    <span id="minute"></span>M
+                    <span id="second"></span>S
+                    <img src="heart.png" alt="" id="heart">
+                </em>
+            </div>
+        </div>
+        <p id="sign">Mengwei Feng & Jitian Deng</p>
+        <p id="footer">——every beat of my heart echoes with yours...</p>
+
+        <div class="text-center mt-5">
+            <button type="button" id="secret-btn" onclick="hideSecretBtn();" data-toggle="collapse" data-target="#secret" aria-expanded="false" aria-controls="secret" class="btn btn-light btn-sm" style="opacity: 0.5;">secret</button>
+            <div class="collapse ml-3 mr-5" id="secret">
+                <div class="input-group">
+                    <input id="secret-input" type="text" class="form-control" placeholder="F's birthday + D's birthday" aria-label="F's birthday + D's birthday" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" onclick="submitSecret();">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/timer.js"></script>
+<script src="js/md5.min.js"></script>
+<script>
+    function hideSecretBtn() {
+        $("#secret-btn").fadeOut();
+    }
+    function submitSecret() {
+        let secret = $("#secret-input").val();
+        let hash = md5(secret);
+        let address = './secret/' + hash + '.html';
+        $.ajax(address, {
+            error: function (_) {
+                window.alert("Failed");
+            },
+            success: function (_) {
+                window.location.href = address;
+            }
+        })
+    }
+</script>
+</body>
+</html>

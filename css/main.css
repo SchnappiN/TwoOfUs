@@ -1,0 +1,45 @@
+#content {
+    max-width: 25em;
+    margin: 30vh auto 0 auto;
+}
+
+#leader {
+    font-family: 'Merienda', cursive;
+}
+
+#time {
+    max-width: 18rem;
+    text-align: right;
+}
+
+.lead {
+    height: 1.25rem;
+}
+
+#heart {
+    width: 1.5rem;
+    height: 1.5rem;
+    display: inline-block;
+    animation: beat .5s infinite alternate;
+    transform-origin: bottom;
+}
+
+#sign {
+    margin-top: 2rem;
+    text-align: center;
+    font-family: 'Amatic SC', cursive;
+}
+
+#footer {
+    font-size: 0.7em;
+    text-align: right;
+    font-family: 'Indie Flower', cursive;
+}
+
+@keyframes beat{
+    to {
+        margin-top: -0.2em;
+        transform: scale(1.1);
+    }
+}
+
